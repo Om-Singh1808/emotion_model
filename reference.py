@@ -1,0 +1,33 @@
+import pandas as pd
+#EDA: Exploratory data analysis
+import matplotlib.pyplot as plt
+import seaborn as sns
+data=pd.read_csv("Titanic-Dataset.csv")
+print(data.head())
+print(data.shape)
+print(data.columns)
+print(data.isnull().sum())
+print(data.info())
+print(data.describe())
+sns.heatmap(data.isnull(), yticklabels=False, cmap="viridis")
+plt.show()
+sns.countplot(x="Survived", data=data)
+plt.title("Survived")
+plt.show()
+sns.histplot(data=data, x="Age")
+plt.title("Age")
+plt.show()
+sns.histplot(data=data, x="Fare")
+plt.title("Fare")
+plt.show()
+sns.countplot(x="Sex" , hue="Survived" , data=data)
+plt.title("survived vs gender")
+plt.show()
+sns.countplot(x="Pclass" , hue="Survived" , data=data)
+plt.title("survived vs pclass")
+plt.show()
+#correlation ananlysis
+plt.figure(figsize=(10,8))
+sns.heatmap(data.corr(numeric_only=True), annot=True)
+plt.title("Correlation Matrix")
+plt.show()

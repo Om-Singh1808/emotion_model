@@ -1,0 +1,5 @@
+0:very_positive
+1:positive
+2:neutral
+3:negative
+4:very_negative
